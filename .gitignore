@@ -7,6 +7,9 @@
 *.dll
 *.so
 *.dylib
+buken-coaching-go
+/bin/
+/dist/
 
 # Test binary, built with `go test -c`
 *.test
@@ -26,7 +29,24 @@ go.work.sum
 
 # env file
 .env
+.env.local
+.env.*local
 
-# Editor/IDE
-# .idea/
-# .vscode/
+# Templ generated files
+*_templ.go
+*_templ.txt
+
+# Build directories
+/build/
+/tmp/
+
+# Static asset builds
+web/static/css/output.css
+web/static/js/bundle.js
+
+# Log files
+*.log
+logs/
+
+# Air tmp directory
+.air/
