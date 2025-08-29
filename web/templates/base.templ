@@ -1,0 +1,66 @@
+package templates
+
+templ BaseLayout(title string) {
+	<!DOCTYPE html>
+	<html lang="es">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title } - Buken Coaching</title>
+			<link rel="stylesheet" href="/static/css/styles.css"/>
+			<script src="/static/js/dist/index.js" defer></script>
+		</head>
+		<body>
+			<header>
+				@Header()
+			</header>
+			<main>
+				{ children... }
+			</main>
+			<footer>
+				@Footer()
+			</footer>
+		</body>
+	</html>
+}
+
+templ Header() {
+	<nav class="bg-main text-white p-4">
+		<div class="container mx-auto flex justify-between items-center">
+			<h1 class="text-2xl font-bold">Buken Coaching</h1>
+			<ul class="flex space-x-4">
+				<li><a href="/" class="hover:text-gray-300">Inicio</a></li>
+				<li><a href="/about" class="hover:text-gray-300">¿Quién soy?</a></li>
+				<li><a href="/coaching" class="hover:text-gray-300">Sobre mi Coaching</a></li>
+				<li><a href="/appointments" class="hover:text-gray-300">Agenda una consulta</a></li>
+				<li><a href="/faq" class="hover:text-gray-300">FAQ</a></li>
+			</ul>
+		</div>
+	</nav>
+}
+
+templ Footer() {
+	<div class="bg-secondary text-white p-8 mt-8">
+		<div class="container mx-auto text-center">
+			<p>&copy; 2024 Buken Coaching. Todos los derechos reservados.</p>
+		</div>
+	</div>
+}
+
+templ HomePage() {
+	@BaseLayout("Inicio") {
+		<div class="container mx-auto py-8">
+			<h2 class="text-3xl font-bold mb-4">Bienvenido a Buken Coaching</h2>
+			<p>Tu camino hacia el bienestar comienza aquí.</p>
+		</div>
+	}
+}
+
+templ AboutPage() {
+	@BaseLayout("¿Quién soy?") {
+		<div class="container mx-auto py-8">
+			<h2 class="text-3xl font-bold mb-4">¿Quién soy?</h2>
+			<p>Información sobre el coach.</p>
+		</div>
+	}
+}
