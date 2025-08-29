@@ -50,3 +50,6 @@ logs/
 
 # Air tmp directory
 .air/
+
+# Node modules
+node_modules/

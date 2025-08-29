@@ -79,7 +79,19 @@ live/sync_assets:
 ## live: start all 5 watch processes in parallel.
 .PHONY: live
 live:
-	make -j5 templ/live run/live tailwind/live esbuild/live live/sync_assets
+	make -j5 templ/live run/live css/live esbuild/live live/sync_assets
+
+## deps: download project dependencies
+.PHONY: deps
+deps:
+	@echo "==> Downloading project dependencies..."
+	@go install github.com/air-verse/air@latest # live reload
+	@go install github.com/a-h/templ/cmd/templ@latest #templ templating
+	@npm install -D tailwindcss
+	@npm install -D @tailwindcss/forms
+	@npm install -D @tailwindcss/typography
+	@go install golang.org/x/tools/cmd/goimports@latest
+	@go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 
 # ==================================================================================== #
 # QUALITY CONTROL
@@ -87,7 +99,7 @@ live:
 
 ## audit: run quality control checks (static, vulnerabilities, etc)
 .PHONY: audit
-audit: test docs/check
+audit: test
 	@echo "==> Running static analysis..."
 	@go mod tidy -diff
 	@go mod verify
