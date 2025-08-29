@@ -67,13 +67,13 @@ clean:
 
 ## build: build the application
 .PHONY: build
-build: env/check tidy
+build: env/check tidy templ/generate
 	@echo "Building ${binary_name}..."
 	@go build -o=./bin/${binary_name} ${main_package_path}
 
 ## build/prod: build the application for production with optimizations
 .PHONY: build/prod
-build/prod: env/check vendor
+build/prod: env/check vendor templ/generate assets/build
 	@echo "Building ${binary_name} for production..."
 	@go build -ldflags="-s -w" -o=./bin/${binary_name} ${main_package_path}
 
@@ -119,15 +119,33 @@ js/live:
 		echo "No TypeScript files found, skipping JS watch"; \
 	fi
 
+## templ/generate: generate Go code from templ files
+.PHONY: templ/generate
+templ/generate:
+	@echo "Generating templ files..."
+	@templ generate
+
+## templ/fmt: format templ files
+.PHONY: templ/fmt
+templ/fmt:
+	@echo "Formatting templ files..."
+	@templ fmt .
+
+## templ/live: run templ generation in watch mode
+.PHONY: templ/live
+templ/live:
+	@echo "Watching templ files..."
+	@templ generate --watch --proxy="http://localhost:8080" --open-browser=false
+
 ## assets/build: build all static assets (CSS and JS)
 .PHONY: assets/build
-assets/build: css/build js/build
+assets/build: css/build js/build templ/generate
 
 ## live: start all watch processes in parallel
 .PHONY: live
 live: env/check
 	@echo "Starting live development environment..."
-	make -j3 run/live css/live js/live
+	make -j4 run/live css/live js/live templ/live
 
 ## deps: install project dependencies
 .PHONY: deps
@@ -140,6 +158,7 @@ deps:
 	@go install github.com/air-verse/air@latest
 	@go install golang.org/x/tools/cmd/goimports@latest
 	@go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	@go install github.com/a-h/templ/cmd/templ@latest
 	@echo "==> Dependencies installed successfully"
 
 # ==================================================================================== #
