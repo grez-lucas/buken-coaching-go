@@ -1,6 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-main: #227447;
+  --color-secondary: #252525;
+  --color-accent: #fbbf24;
+  --color-accent1: #C0392B;
+  --color-accent2: #F39C12;
+}
 
 @layer base {
   html {
@@ -8,6 +14,11 @@
   }
   
   body {
-    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  [x-cloak] {
+    display: none !important;
   }
 }
