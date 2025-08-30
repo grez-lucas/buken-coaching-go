@@ -21,8 +21,7 @@ func main() {
 	r.Handle("GET /static/", http.StripPrefix("/static/", static))
 
 	// Serve templ templates
-	component := templates.BaseLayout("Hello Main 2")
-	r.Handle("/", templ.Handler(component))
+	r.Handle("/", templ.Handler(templates.IndexPage()))
 
 	srv := &http.Server{
 		Handler:      middleware.Logging(logger, r),

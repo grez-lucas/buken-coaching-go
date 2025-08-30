@@ -2,56 +2,92 @@ package templates
 
 templ BaseLayout(title string) {
 	<!DOCTYPE html>
-	<html lang="es">
+	<html lang="es" class="bg-black">
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<title>{ title } - Buken Coaching</title>
-			<link rel="stylesheet" href="./web/static/css/styles.css"/>
-			<!-- <script src="/static/js/dist/index.js" defer></script> -->
+			<title>{ title } - LB Coaching</title>
+			<link rel="stylesheet" href="/static/css/styles.css"/>
+			<!-- Alpine.js for interactivity -->
+			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+			<style>
+				[x-cloak] { display: none !important; }
+			</style>
 		</head>
-		<body>
-			<header>
-				@Header()
-			</header>
+		<body class="bg-black text-white min-h-screen">
+			@Header()
 			<main>
 				{ children... }
 			</main>
-			<footer>
-				@Footer()
-			</footer>
+			@Footer()
 		</body>
 	</html>
 }
 
-templ Header() {
-	<nav class="bg-main text-white p-4">
-		<div class="container mx-auto flex justify-between items-center">
-			<h1 class="text-2xl font-bold">Buken Coaching</h1>
-			<ul class="flex space-x-4">
-				<li><a href="/" class="hover:text-gray-300">Inicio</a></li>
-				<li><a href="/about" class="hover:text-gray-300">¿Quién soy?</a></li>
-				<li><a href="/coaching" class="hover:text-gray-300">Sobre mi Coaching</a></li>
-				<li><a href="/appointments" class="hover:text-gray-300">Agenda una consulta</a></li>
-				<li><a href="/faq" class="hover:text-gray-300">FAQ</a></li>
-			</ul>
-		</div>
-	</nav>
-}
-
 templ Footer() {
-	<div class="bg-secondary text-white p-8 mt-8">
-		<div class="container mx-auto text-center">
-			<p>&copy; 2024 Buken Coaching. Todos los derechos reservados.</p>
+	<footer class="bg-gray-900 border-t border-green-900/20">
+		<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<!-- Brand Section -->
+				<div class="col-span-1">
+					<div class="flex items-center mb-4">
+						<img src="/static/images/logo.png" alt="LB Coaching Logo" class="h-10 w-auto mr-3"/>
+						<span class="text-xl font-bold text-white">LB COACHING</span>
+					</div>
+					<p class="text-gray-400 text-sm leading-relaxed">
+						Elite fitness coaching donde la ciencia encuentra la práctica. 
+						Transformaciones reales para atletas comprometidos.
+					</p>
+					<div class="flex items-center mt-4 text-neon text-sm">
+						<div class="w-8 h-px bg-neon mr-3"></div>
+						<span class="tracking-widest uppercase font-medium">Elite • Disciplina • Compromiso</span>
+					</div>
+				</div>
+				
+				<!-- Quick Links -->
+				<div class="col-span-1">
+					<h3 class="text-white font-bold tracking-wide uppercase text-sm mb-4">Navegación</h3>
+					<nav class="space-y-2">
+						<a href="/" class="block text-gray-400 hover:text-neon transition-colors text-sm">Inicio</a>
+						<a href="/about" class="block text-gray-400 hover:text-neon transition-colors text-sm">¿Quién soy?</a>
+						<a href="/coaching" class="block text-gray-400 hover:text-neon transition-colors text-sm">Asesorías</a>
+						<a href="/appointments" class="block text-gray-400 hover:text-neon transition-colors text-sm">Consulta Gratis</a>
+					</nav>
+				</div>
+				
+				<!-- Contact & CTA -->
+				<div class="col-span-1">
+					<h3 class="text-white font-bold tracking-wide uppercase text-sm mb-4">Comienza Ahora</h3>
+					<p class="text-gray-400 text-sm mb-4">
+						¿Listo para tu transformación elite?
+					</p>
+					<a href="/appointments" class="inline-block border border-neon text-neon hover:bg-neon hover:text-black font-bold py-2 px-6 text-sm uppercase tracking-wide transition-all">
+						Consulta Estratégica
+					</a>
+				</div>
+			</div>
+			
+			<!-- Bottom Section -->
+			<div class="mt-8 pt-8 border-t border-gray-800">
+				<div class="flex flex-col md:flex-row justify-between items-center">
+					<p class="text-gray-500 text-xs">
+						&copy; { "2024" } LB Coaching. Todos los derechos reservados.
+					</p>
+					<div class="flex items-center mt-4 md:mt-0">
+						<div class="w-16 h-px bg-gradient-to-r from-transparent to-neon mr-3"></div>
+						<span class="text-gray-500 text-xs tracking-widest">ELITE FITNESS COACHING</span>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
+	</footer>
 }
 
 templ HomePage() {
 	@BaseLayout("Inicio") {
 		<div class="container mx-auto py-8">
-			<h2 class="text-3xl font-bold mb-4">Bienvenido a Buken Coaching</h2>
-			<p>Tu camino hacia el bienestar comienza aquí.</p>
+			<h2 class="text-3xl font-bold mb-4 text-neon">Bienvenido a LB Coaching</h2>
+			<p class="text-gray-400">Tu camino hacia el bienestar elite comienza aquí.</p>
 		</div>
 	}
 }
@@ -59,8 +95,8 @@ templ HomePage() {
 templ AboutPage() {
 	@BaseLayout("¿Quién soy?") {
 		<div class="container mx-auto py-8">
-			<h2 class="text-3xl font-bold mb-4">¿Quién soy?</h2>
-			<p>Información sobre el coach.</p>
+			<h2 class="text-3xl font-bold mb-4 text-neon">¿Quién soy?</h2>
+			<p class="text-gray-400">Información sobre el coach.</p>
 		</div>
 	}
 }

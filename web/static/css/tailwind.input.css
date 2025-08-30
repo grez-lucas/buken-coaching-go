@@ -1,11 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main: #227447;
-  --color-secondary: #252525;
-  --color-accent: #fbbf24;
-  --color-accent1: #C0392B;
-  --color-accent2: #F39C12;
+  /* Elite Fitness Color Palette */
+  --color-primary: #0a0a0a;        /* Deep black */
+  --color-secondary: #1a1a1a;      /* Soft black */
+  --color-dark: #000000;           /* Pure black */
+  --color-light: #ffffff;          /* Pure white */
+  
+  /* Green palette - Elite & Intelligence */
+  --color-green-900: #052e16;      /* Darkest green */
+  --color-green-800: #14532d;      /* Very dark green */
+  --color-green-700: #15803d;      /* Dark green */
+  --color-green-600: #16a34a;      /* Medium dark green */
+  --color-green-500: #22c55e;      /* Main green */
+  --color-green-400: #4ade80;      /* Light green */
+  --color-neon: #39ff14;           /* Neon green accent */
+  
+  /* Neutral grays */
+  --color-gray-900: #111111;       /* Almost black */
+  --color-gray-800: #1f1f1f;       /* Very dark gray */
+  --color-gray-700: #2d2d2d;       /* Dark gray */
+  --color-gray-600: #404040;       /* Medium gray */
+  --color-gray-500: #666666;       /* Gray */
+  --color-gray-400: #999999;       /* Light gray */
+  --color-gray-300: #cccccc;       /* Very light gray */
+  --color-gray-200: #e5e5e5;       /* Off white */
+  --color-gray-100: #f5f5f5;       /* Near white */
 }
 
 @layer base {
@@ -16,6 +36,8 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-dark);
+    color: var(--color-light);
   }
   
   [x-cloak] {
