@@ -25,57 +25,57 @@ templ BaseLayout(title string) {
 }
 
 templ Footer() {
-	<footer class="bg-gray-900 border-t border-green-900/20">
-		<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+	<footer class="bg-gray-900 border-t border-green-800/20">
+		<div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
 				<!-- Brand Section -->
 				<div class="col-span-1">
-					<div class="flex items-center mb-4">
+					<div class="flex items-center mb-6">
 						<img src="/static/images/logo.png" alt="LB Coaching Logo" class="h-10 w-auto mr-3"/>
-						<span class="text-xl font-bold text-white">LB COACHING</span>
+						<span class="text-xl font-bold text-white tracking-wider">LB COACHING</span>
 					</div>
-					<p class="text-gray-400 text-sm leading-relaxed">
-						Elite fitness coaching donde la ciencia encuentra la práctica. 
-						Transformaciones reales para atletas comprometidos.
+					<p class="text-gray-400 text-sm leading-relaxed mb-4">
+						Elite fitness coaching donde la disciplina encuentra la ciencia deportiva. 
+						Precisión, compromiso y resultados verificables.
 					</p>
-					<div class="flex items-center mt-4 text-neon text-sm">
-						<div class="w-8 h-px bg-neon mr-3"></div>
-						<span class="tracking-widest uppercase font-medium">Elite • Disciplina • Compromiso</span>
+					<div class="flex items-center text-tactical text-xs">
+						<div class="w-6 h-px bg-tactical mr-3"></div>
+						<span class="tracking-widest uppercase font-semibold">Elite • Disciplina • Compromiso</span>
 					</div>
 				</div>
 				
 				<!-- Quick Links -->
 				<div class="col-span-1">
-					<h3 class="text-white font-bold tracking-wide uppercase text-sm mb-4">Navegación</h3>
-					<nav class="space-y-2">
-						<a href="/" class="block text-gray-400 hover:text-neon transition-colors text-sm">Inicio</a>
-						<a href="/about" class="block text-gray-400 hover:text-neon transition-colors text-sm">¿Quién soy?</a>
-						<a href="/coaching" class="block text-gray-400 hover:text-neon transition-colors text-sm">Asesorías</a>
-						<a href="/appointments" class="block text-gray-400 hover:text-neon transition-colors text-sm">Consulta Gratis</a>
+					<h3 class="text-white font-bold tracking-wider uppercase text-sm mb-6">Navegación</h3>
+					<nav class="space-y-3">
+						<a href="/" class="block text-gray-400 hover:text-tactical transition-colors text-sm">Inicio</a>
+						<a href="/about" class="block text-gray-400 hover:text-tactical transition-colors text-sm">¿Quién soy?</a>
+						<a href="/coaching" class="block text-gray-400 hover:text-tactical transition-colors text-sm">Asesorías</a>
+						<a href="/appointments" class="block text-gray-400 hover:text-tactical transition-colors text-sm">Consulta Táctica</a>
 					</nav>
 				</div>
 				
 				<!-- Contact & CTA -->
 				<div class="col-span-1">
-					<h3 class="text-white font-bold tracking-wide uppercase text-sm mb-4">Comienza Ahora</h3>
-					<p class="text-gray-400 text-sm mb-4">
-						¿Listo para tu transformación elite?
+					<h3 class="text-white font-bold tracking-wider uppercase text-sm mb-6">Consulta Elite</h3>
+					<p class="text-gray-400 text-sm mb-6 leading-relaxed">
+						¿Preparado para una transformación física ejecutada con precisión científica?
 					</p>
-					<a href="/appointments" class="inline-block border border-neon text-neon hover:bg-neon hover:text-black font-bold py-2 px-6 text-sm uppercase tracking-wide transition-all">
-						Consulta Estratégica
+					<a href="/appointments" class="inline-block border border-tactical text-tactical hover:bg-tactical hover:text-black font-bold py-2 px-6 text-sm uppercase tracking-wider transition-all">
+						Consulta Gratuita
 					</a>
 				</div>
 			</div>
 			
 			<!-- Bottom Section -->
-			<div class="mt-8 pt-8 border-t border-gray-800">
+			<div class="mt-12 pt-8 border-t border-gray-800">
 				<div class="flex flex-col md:flex-row justify-between items-center">
-					<p class="text-gray-500 text-xs">
+					<p class="text-gray-500 text-xs tracking-wide">
 						&copy; { "2024" } LB Coaching. Todos los derechos reservados.
 					</p>
 					<div class="flex items-center mt-4 md:mt-0">
-						<div class="w-16 h-px bg-gradient-to-r from-transparent to-neon mr-3"></div>
-						<span class="text-gray-500 text-xs tracking-widest">ELITE FITNESS COACHING</span>
+						<div class="w-12 h-px bg-gradient-to-r from-transparent to-tactical mr-3"></div>
+						<span class="text-gray-500 text-xs tracking-widest font-semibold">ELITE FITNESS COACHING</span>
 					</div>
 				</div>
 			</div>
@@ -86,8 +86,8 @@ templ Footer() {
 templ HomePage() {
 	@BaseLayout("Inicio") {
 		<div class="container mx-auto py-8">
-			<h2 class="text-3xl font-bold mb-4 text-neon">Bienvenido a LB Coaching</h2>
-			<p class="text-gray-400">Tu camino hacia el bienestar elite comienza aquí.</p>
+			<h2 class="text-3xl font-bold mb-4 text-tactical">Bienvenido a LB Coaching</h2>
+			<p class="text-gray-400">Tu camino hacia la excelencia táctica comienza aquí.</p>
 		</div>
 	}
 }
@@ -95,8 +95,8 @@ templ HomePage() {
 templ AboutPage() {
 	@BaseLayout("¿Quién soy?") {
 		<div class="container mx-auto py-8">
-			<h2 class="text-3xl font-bold mb-4 text-neon">¿Quién soy?</h2>
-			<p class="text-gray-400">Información sobre el coach.</p>
+			<h2 class="text-3xl font-bold mb-4 text-tactical">¿Quién soy?</h2>
+			<p class="text-gray-400">Información sobre el coach táctico.</p>
 		</div>
 	}
 }

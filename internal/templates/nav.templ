@@ -1,23 +1,23 @@
 package templates
 
 templ Header() {
-	<header class="bg-black border-b border-green-900/50 sticky top-0 z-50 backdrop-blur-sm bg-black/95">
+	<header class="bg-black border-b border-green-800/40 sticky top-0 z-50 backdrop-blur-sm bg-black/98">
 		<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" x-data="{ mobileMenuOpen: false }">
 			<div class="flex justify-between items-center h-16">
 				<!-- Logo - Left on desktop, center on mobile -->
 				<div class="flex-shrink-0 md:flex-shrink md:flex-grow-0">
 					<a href="/" class="block group">
-						<img src="/static/images/logo.png" alt="LB Coaching Logo" class="h-12 w-auto transition-transform group-hover:scale-110"/>
+						<img src="/static/images/logo.png" alt="LB Coaching Logo" class="h-12 w-auto transition-transform group-hover:scale-105"/>
 					</a>
 				</div>
 				
 				<!-- Desktop Menu - Right aligned -->
 				<div class="hidden md:flex items-center space-x-8">
-					<a href="/" class="text-gray-300 hover:text-neon transition-colors font-medium tracking-wide uppercase text-sm">Inicio</a>
-					<a href="/about" class="text-gray-300 hover:text-neon transition-colors font-medium tracking-wide uppercase text-sm">¿Quién soy?</a>
-					<a href="/coaching" class="text-gray-300 hover:text-neon transition-colors font-medium tracking-wide uppercase text-sm">Asesorías</a>
-					<a href="/appointments" class="px-4 py-2 border border-neon text-neon hover:bg-neon hover:text-black transition-all font-bold tracking-wide uppercase text-sm">
-						Consulta Gratis
+					<a href="/" class="text-gray-300 hover:text-tactical transition-colors font-medium tracking-wider uppercase text-sm">Inicio</a>
+					<a href="/about" class="text-gray-300 hover:text-tactical transition-colors font-medium tracking-wider uppercase text-sm">¿Quién soy?</a>
+					<a href="/coaching" class="text-gray-300 hover:text-tactical transition-colors font-medium tracking-wider uppercase text-sm">Asesorías</a>
+					<a href="/appointments" class="px-6 py-2 border border-tactical text-tactical hover:bg-tactical hover:text-black transition-all font-semibold tracking-wider uppercase text-sm">
+						Consulta
 					</a>
 				</div>
 				
@@ -25,19 +25,19 @@ templ Header() {
 				<div class="md:hidden">
 					<button 
 						type="button" 
-						class="text-gray-300 hover:text-neon focus:outline-none focus:text-neon transition-colors"
+						class="text-gray-300 hover:text-tactical focus:outline-none focus:text-tactical transition-colors"
 						@click="mobileMenuOpen = !mobileMenuOpen"
 						:aria-expanded="mobileMenuOpen"
 						aria-controls="mobile-menu"
 					>
 						<span class="sr-only">Abrir menú principal</span>
 						<!-- Hamburger icon -->
-						<svg x-show="!mobileMenuOpen" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+						<svg x-show="!mobileMenuOpen" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
 						</svg>
 						<!-- Close icon -->
-						<svg x-show="mobileMenuOpen" x-cloak class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+						<svg x-show="mobileMenuOpen" x-cloak class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
 						</svg>
 					</button>
 				</div>
@@ -56,31 +56,21 @@ templ Header() {
 				x-transition:leave-start="opacity-100 transform translate-y-0"
 				x-transition:leave-end="opacity-0 transform -translate-y-2"
 			>
-				<div class="px-2 pt-2 pb-3 space-y-1 bg-gray-900 border-t border-green-900/30">
-					<a href="/" class="block px-3 py-2 text-gray-300 hover:text-neon hover:bg-gray-800 rounded-md text-base font-medium tracking-wide uppercase transition-all">
+				<div class="px-2 pt-2 pb-3 space-y-1 bg-gray-900 border-t border-green-800/20">
+					<a href="/" class="block px-3 py-3 text-gray-300 hover:text-tactical hover:bg-gray-800 rounded text-base font-medium tracking-wider uppercase transition-all">
 						Inicio
 					</a>
-					<a href="/about" class="block px-3 py-2 text-gray-300 hover:text-neon hover:bg-gray-800 rounded-md text-base font-medium tracking-wide uppercase transition-all">
+					<a href="/about" class="block px-3 py-3 text-gray-300 hover:text-tactical hover:bg-gray-800 rounded text-base font-medium tracking-wider uppercase transition-all">
 						¿Quién soy?
 					</a>
-					<a href="/coaching" class="block px-3 py-2 text-gray-300 hover:text-neon hover:bg-gray-800 rounded-md text-base font-medium tracking-wide uppercase transition-all">
+					<a href="/coaching" class="block px-3 py-3 text-gray-300 hover:text-tactical hover:bg-gray-800 rounded text-base font-medium tracking-wider uppercase transition-all">
 						Asesorías
 					</a>
-					<a href="/appointments" class="block px-3 py-2 border border-neon text-neon hover:bg-neon hover:text-black rounded-md text-base font-bold tracking-wide uppercase transition-all text-center">
-						Consulta Gratis
+					<a href="/appointments" class="block px-3 py-3 border border-tactical text-tactical hover:bg-tactical hover:text-black rounded text-base font-semibold tracking-wider uppercase transition-all text-center mt-2">
+						Consulta
 					</a>
 				</div>
 			</div>
 		</nav>
 	</header>
-}
-
-templ heroSection() {
-	<section class="relative h-[70vh] flex items-center justify-center text-center text-white bg-cover bg-center" style="background-image: url('https://images.squarespace-cdn.com/content/v1/615e440d2b5cdc6d4c9e46b6/8dad7c53-0b32-4b49-a6ef-17f2d9565372/_DSC6158.jpg');">
-		<div class="absolute inset-0 bg-black/80"></div>
-		<div class="relative z-10 p-4">
-			<h1 class="text-4xl md:text-6xl font-extrabold uppercase tracking-wider">Ultimate Physique Coach</h1>
-			<p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-gray-300">Where science meets practice - to take your physique to the next level!</p>
-		</div>
-	</section>
 }
