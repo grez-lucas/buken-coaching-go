@@ -1,6 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Tactical Military Color Palette */
+  --color-primary: #0a0a0a;        /* Deep black */
+  --color-secondary: #1a1a1a;      /* Soft black */
+  --color-dark: #000000;           /* Pure black */
+  --color-light: #ffffff;          /* Pure white */
+  
+  /* Military Green palette - Tactical & Professional */
+  --color-green-900: #052e16;      /* Darkest green - forest */
+  --color-green-800: #14532d;      /* Very dark green - military */
+  --color-green-700: #166534;      /* Dark tactical green */
+  --color-green-600: #15803d;      /* Medium tactical green */
+  --color-green-500: #16a34a;      /* Main tactical green */
+  --color-green-400: #22c55e;      /* Lighter tactical green */
+  --color-tactical: #4a7c59;       /* Military tactical green */
+  --color-accent: #5d8a66;         /* Muted tactical accent */
+  
+  /* Neutral grays - Military spec */
+  --color-gray-950: #030303;       /* Near black */
+  --color-gray-900: #0f0f0f;       /* Almost black */
+  --color-gray-800: #1a1a1a;       /* Very dark gray */
+  --color-gray-700: #262626;       /* Dark gray */
+  --color-gray-600: #404040;       /* Medium gray */
+  --color-gray-500: #666666;       /* Gray */
+  --color-gray-400: #999999;       /* Light gray */
+  --color-gray-300: #b3b3b3;       /* Very light gray */
+  --color-gray-200: #d4d4d4;       /* Off white */
+  --color-gray-100: #e8e8e8;       /* Near white */
+}
 
 @layer base {
   html {
@@ -8,6 +36,14 @@
   }
   
   body {
-    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  }
+  
+  [x-cloak] {
+    display: none !important;
   }
 }

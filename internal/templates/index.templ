@@ -1,0 +1,116 @@
+package templates
+
+templ IndexPage() {
+	@BaseLayout("LB Coaching - Tactical Fitness") {
+		@heroSectionMain()
+		@featureSection("Asesorías 1:1", "Estrategia personalizada.", "Trabaja directamente con Coach Lucas, un especialista en transformaciones físicas con más de 6 años de experiencia. Su método basado en datos y disciplina asegura resultados medibles y sostenibles.", "https://images.squarespace-cdn.com/content/v1/615e440d2b5cdc6d4c9e46b6/1697039206915-5SZ0W8HDQHHB8P0NL3YG/_DSC6270.jpg", "/coaching", true)
+		@featureSection("Resultados Verificables", "Compromiso con la excelencia.", "Cada programa está diseñado con precisión científica. Desde pérdida de grasa hasta preparación para competencias, nuestros métodos están probados y respaldados por ciencia aplicada.", "https://images.squarespace-cdn.com/content/v1/615e440d2b5cdc6d4c9e46b6/1697039335186-9R8RQ6TGCYW4Q0HIS1DH/_DSC6306.jpg", "/testimonials", false)
+		@featureSection("Método Elite", "Ciencia aplicada con disciplina.", "Utilizamos protocolos de entrenamiento de élite combinados con nutrición estratégica. Cada variable está calculada, cada progreso documentado, cada objetivo conquistado metódicamente.", "https://images.squarespace-cdn.com/content/v1/615e440d2b5cdc6d4c9e46b6/1697039422863-MHZY7OJ8KRNPZW2SC5FD/_DSC6348.jpg", "/method", true)
+	}
+}
+
+// Tactical hero section with military-inspired design
+templ heroSectionMain() {
+	<section class="relative min-h-screen flex items-center justify-center text-white bg-cover bg-center bg-fixed" style="background-image: url('https://images.squarespace-cdn.com/content/v1/615e440d2b5cdc6d4c9e46b6/8dad7c53-0b32-4b49-a6ef-17f2d9565372/_DSC6158.jpg');">
+		<div class="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black"></div>
+		<!-- Tactical overlay pattern -->
+		<div class="absolute inset-0 bg-black/50"></div>
+		<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h1 class="text-5xl md:text-7xl font-extrabold uppercase tracking-wider mb-8 text-white">
+				<span class="block font-light">LB</span>
+				<span class="block text-tactical font-black">COACHING</span>
+			</h1>
+			<div class="w-16 h-px bg-tactical mx-auto mb-8"></div>
+			<h2 class="text-lg md:text-xl font-semibold mb-6 text-gray-300 tracking-widest uppercase">
+				Elite • Disciplina • Compromiso
+			</h2>
+			<p class="text-sm md:text-base max-w-2xl mx-auto mb-12 leading-relaxed text-gray-400 font-medium">
+				Donde la <span class="text-tactical font-semibold">disciplina</span> encuentra la <span class="text-tactical font-semibold">ciencia deportiva</span>. 
+				Transformaciones físicas ejecutadas con <span class="text-white font-semibold">precisión</span> y <span class="text-white font-semibold">compromiso total</span>.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-6 justify-center">
+				<a href="/coaching" class="group inline-block bg-tactical text-black font-bold py-4 px-10 uppercase tracking-wider border border-tactical hover:bg-transparent hover:text-tactical transition-all transform hover:scale-105">
+					Comienza Tu Elite Journey
+				</a>
+				<a href="/appointments" class="group inline-block border border-white text-white font-bold py-4 px-10 uppercase tracking-wider hover:border-tactical hover:bg-tactical hover:text-black transition-all transform hover:scale-105">
+					Consulta Gratuita
+				</a>
+			</div>
+			<!-- Tactical line indicator -->
+			<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+				<div class="w-px h-12 bg-gradient-to-b from-tactical to-transparent"></div>
+			</div>
+		</div>
+	</section>
+}
+
+// Tactical feature sections with military precision design
+templ featureSection(title, subtitle, description, imageUrl, buttonLink string, imageLeft bool) {
+	<section class="py-20 px-4 bg-black border-b border-gray-900/50">
+		<div class="max-w-7xl mx-auto">
+			if imageLeft {
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+					<div class="order-2 lg:order-1">
+						<div class="relative group">
+							<img src={ templ.URL(imageUrl) } alt={ title } class="object-cover w-full h-[500px] filter grayscale hover:grayscale-0 transition-all duration-700"/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+							<div class="absolute top-6 left-6">
+								<div class="w-8 h-px bg-tactical"></div>
+							</div>
+						</div>
+					</div>
+					<div class="order-1 lg:order-2 text-white">
+						<div class="max-w-lg">
+							<div class="flex items-center mb-6">
+								<div class="w-6 h-px bg-tactical mr-4"></div>
+								<span class="text-tactical font-bold tracking-widest uppercase text-xs">Elite</span>
+							</div>
+							<h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">{ title }</h2>
+							<p class="text-tactical text-lg font-semibold mb-6 tracking-wide">{ subtitle }</p>
+							<p class="text-gray-400 leading-relaxed mb-8 font-medium">{ description }</p>
+							<a href={ templ.URL(buttonLink) } class="inline-block border border-tactical text-tactical hover:bg-tactical hover:text-black font-bold py-3 px-8 uppercase tracking-wider transition-all transform hover:scale-105 group">
+								<span class="flex items-center">
+									Ver Más
+									<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+									</svg>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			} else {
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+					<div class="text-white">
+						<div class="max-w-lg">
+							<div class="flex items-center mb-6">
+								<div class="w-6 h-px bg-tactical mr-4"></div>
+								<span class="text-tactical font-bold tracking-widest uppercase text-xs">Elite</span>
+							</div>
+							<h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">{ title }</h2>
+							<p class="text-tactical text-lg font-semibold mb-6 tracking-wide">{ subtitle }</p>
+							<p class="text-gray-400 leading-relaxed mb-8 font-medium">{ description }</p>
+							<a href={ templ.URL(buttonLink) } class="inline-block border border-tactical text-tactical hover:bg-tactical hover:text-black font-bold py-3 px-8 uppercase tracking-wider transition-all transform hover:scale-105 group">
+								<span class="flex items-center">
+									Ver Más
+									<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+									</svg>
+								</span>
+							</a>
+						</div>
+					</div>
+					<div>
+						<div class="relative group">
+							<img src={ templ.URL(imageUrl) } alt={ title } class="object-cover w-full h-[500px] filter grayscale hover:grayscale-0 transition-all duration-700"/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+							<div class="absolute top-6 right-6">
+								<div class="w-8 h-px bg-tactical"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</section>
+}
