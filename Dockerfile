@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.21-alpine AS builder
+FROM golang:1.24-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -22,9 +22,9 @@ RUN templ generate
 
 # Build the application
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
-    -ldflags='-w -s -extldflags "-static"' \
-    -a -installsuffix cgo \
-    -o main ./cmd/server
+  -ldflags='-w -s -extldflags "-static"' \
+  -a -installsuffix cgo \
+  -o main ./cmd/server
 
 # Final stage
 FROM alpine:latest
@@ -34,7 +34,7 @@ RUN apk --no-cache add ca-certificates
 
 # Create non-root user
 RUN addgroup -g 1001 -S appgroup && \
-    adduser -u 1001 -S appuser -G appgroup
+  adduser -u 1001 -S appuser -G appgroup
 
 WORKDIR /app
 
@@ -59,7 +59,7 @@ EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
 
 # Run the application
 CMD ["./main"]
