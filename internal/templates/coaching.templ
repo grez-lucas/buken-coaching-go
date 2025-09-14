@@ -1,0 +1,266 @@
+package templates
+
+templ Coaching() {
+	@BaseLayout("Asesorías Elite") {
+		@coachingHeroSection()
+		@coachingMethodology()
+		@coachingServices()
+		@coachingFAQ()
+	}
+}
+
+// Coaching hero section
+templ coachingHeroSection() {
+	<section class="relative py-20 bg-black border-b border-gray-900/50">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<div class="flex items-center justify-center mb-8">
+				<div class="w-8 h-px bg-tactical mr-4"></div>
+				<span class="text-tactical font-bold tracking-widest uppercase text-xs">Elite Coaching</span>
+				<div class="w-8 h-px bg-tactical ml-4"></div>
+			</div>
+			<h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-white">
+				Asesorías <span class="text-tactical">1:1</span>
+			</h1>
+			<p class="text-xl md:text-2xl text-tactical font-semibold mb-8 tracking-wide">
+				Transformación Elite • Método Científico • Resultados Verificables
+			</p>
+			<p class="text-gray-400 text-lg leading-relaxed mb-12 max-w-3xl mx-auto font-medium">
+				No más programas copiados de internet. Cada plan está diseñado específicamente para ti:
+				tu físico, tus metas, tu estilo de vida. <span class="text-white font-semibold">Ciencia aplicada con disciplina.</span>
+			</p>
+			<div class="flex flex-col sm:flex-row gap-6 justify-center">
+				<a href="/appointments" class="bg-tactical text-black font-bold py-4 px-10 uppercase tracking-wider hover:bg-tactical/90 transition-all transform hover:scale-105 rounded">
+					Consulta Gratuita
+				</a>
+				<a href="#servicios" class="border border-tactical text-tactical hover:bg-tactical hover:text-black font-bold py-4 px-10 uppercase tracking-wider transition-all transform hover:scale-105 rounded">
+					Ver Servicios
+				</a>
+			</div>
+		</div>
+	</section>
+}
+
+// Methodology section with program collage
+templ coachingMethodology() {
+	<section class="py-20 bg-gray-900 border-b border-gray-900/50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div class="text-white">
+					<div class="flex items-center mb-6">
+						<div class="w-6 h-px bg-tactical mr-4"></div>
+						<span class="text-tactical font-bold tracking-widest uppercase text-xs">Elite Method</span>
+					</div>
+					<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Método Basado en Datos</h2>
+					<p class="text-tactical text-xl font-semibold mb-6 tracking-wide">Cada variable calculada. Cada progreso documentado.</p>
+					<div class="space-y-4 mb-8">
+						<div class="flex items-start space-x-3">
+							<div class="w-2 h-2 bg-tactical rounded-full mt-2 flex-shrink-0"></div>
+							<p class="text-gray-300 leading-relaxed"><span class="text-white font-semibold">Entrenamiento Individualizado</span> - Basado en tu experiencia, disponibilidad y objetivos específicos</p>
+						</div>
+						<div class="flex items-start space-x-3">
+							<div class="w-2 h-2 bg-tactical rounded-full mt-2 flex-shrink-0"></div>
+							<p class="text-gray-300 leading-relaxed"><span class="text-white font-semibold">Nutrición Estratégica</span> - Macros calculados, timing optimizado, adherencia sostenible</p>
+						</div>
+						<div class="flex items-start space-x-3">
+							<div class="w-2 h-2 bg-tactical rounded-full mt-2 flex-shrink-0"></div>
+							<p class="text-gray-300 leading-relaxed"><span class="text-white font-semibold">Monitoreo Constante</span> - Check-ins semanales y ajustes en tiempo real</p>
+						</div>
+					</div>
+				</div>
+				<div class="relative group overflow-hidden">
+					<img
+						src="/static/images/program-collage.png"
+						alt="Programa de entrenamiento detallado"
+						class="object-cover w-full contrast-110 brightness-105 saturate-110 group-hover:contrast-125 group-hover:brightness-110 group-hover:scale-105 transition-all duration-700 rounded-lg"
+					/>
+					<div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+					<div class="absolute top-6 right-6">
+						<div class="w-8 h-px bg-tactical"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+// Services section
+templ coachingServices() {
+	<section id="servicios" class="py-20 bg-black border-b border-gray-900/50">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<div class="flex items-center justify-center mb-6">
+					<div class="w-6 h-px bg-tactical mr-4"></div>
+					<span class="text-tactical font-bold tracking-widest uppercase text-xs">Elite Package</span>
+					<div class="w-6 h-px bg-tactical ml-4"></div>
+				</div>
+				<h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">Lo Que Obtienes</h2>
+				<p class="text-tactical text-lg font-semibold tracking-wide">Servicio completo de transformación</p>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Service 1 -->
+				<div class="bg-gray-800 p-8 rounded-lg border border-gray-700/50 text-center group hover:border-tactical/50 transition-all">
+					<div class="w-12 h-12 bg-tactical/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-tactical/20 transition-all">
+						<svg class="w-6 h-6 text-tactical" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-4">Plan de Entrenamiento</h3>
+					<p class="text-gray-400 leading-relaxed">Rutina personalizada basada en tus objetivos, experiencia y disponibilidad de tiempo</p>
+				</div>
+				<!-- Service 2 -->
+				<div class="bg-gray-800 p-8 rounded-lg border border-gray-700/50 text-center group hover:border-tactical/50 transition-all">
+					<div class="w-12 h-12 bg-tactical/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-tactical/20 transition-all">
+						<svg class="w-6 h-6 text-tactical" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-4">Estrategia Nutricional</h3>
+					<p class="text-gray-400 leading-relaxed">Macros calculados, timing optimizado y plan flexible que se adapta a tu estilo de vida</p>
+				</div>
+				<!-- Service 3 -->
+				<div class="bg-gray-800 p-8 rounded-lg border border-gray-700/50 text-center group hover:border-tactical/50 transition-all">
+					<div class="w-12 h-12 bg-tactical/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-tactical/20 transition-all">
+						<svg class="w-6 h-6 text-tactical" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-4">Asesoría 24/7</h3>
+					<p class="text-gray-400 leading-relaxed">Acceso directo para dudas, ajustes y motivación cuando lo necesites</p>
+				</div>
+				<!-- Service 4 -->
+				<div class="bg-gray-800 p-8 rounded-lg border border-gray-700/50 text-center group hover:border-tactical/50 transition-all">
+					<div class="w-12 h-12 bg-tactical/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-tactical/20 transition-all">
+						<svg class="w-6 h-6 text-tactical" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+							<path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 01-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-4">Suplementación</h3>
+					<p class="text-gray-400 leading-relaxed">Plan de suplementos estratégico basado en tus objetivos y presupuesto</p>
+				</div>
+				<!-- Service 5 -->
+				<div class="bg-gray-800 p-8 rounded-lg border border-gray-700/50 text-center group hover:border-tactical/50 transition-all">
+					<div class="w-12 h-12 bg-tactical/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-tactical/20 transition-all">
+						<svg class="w-6 h-6 text-tactical" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-4">Check-in Semanal</h3>
+					<p class="text-gray-400 leading-relaxed">Monitoreo constante del progreso con ajustes en tiempo real según tus resultados</p>
+				</div>
+				<!-- Service 6 -->
+				<div class="bg-gray-800 p-8 rounded-lg border border-gray-700/50 text-center group hover:border-tactical/50 transition-all">
+					<div class="w-12 h-12 bg-tactical/10 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:bg-tactical/20 transition-all">
+						<svg class="w-6 h-6 text-tactical" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-white mb-4">Plantillas Exclusivas</h3>
+					<p class="text-gray-400 leading-relaxed">Acceso a plantillas de seguimiento y herramientas desarrolladas en 6 años de experiencia</p>
+				</div>
+			</div>
+			<!-- CTA Section -->
+			<div class="mt-16 text-center">
+				<div class="bg-gray-800 p-8 md:p-12 rounded-lg border border-gray-700/50 max-w-4xl mx-auto">
+					<div class="w-16 h-px bg-tactical mx-auto mb-6"></div>
+					<h3 class="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight">¿Listo para la Transformación Elite?</h3>
+					<p class="text-gray-300 text-lg leading-relaxed mb-8">
+						<span class="text-tactical font-semibold">No estoy aquí para venderte píldoras mágicas.</span>
+						Este es trabajo duro con resultados garantizados. Si estás dispuesto a comprometerte,
+						yo me comprometo a llevarte al siguiente nivel.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4 justify-center">
+						<a href="/appointments" class="bg-tactical text-black font-bold py-4 px-8 uppercase tracking-wider hover:bg-tactical/90 transition-all transform hover:scale-105 rounded">
+							Consulta Gratuita
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+// FAQ Section
+templ coachingFAQ() {
+	<section class="py-20 bg-gray-900">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<div class="flex items-center justify-center mb-6">
+					<div class="w-6 h-px bg-tactical mr-4"></div>
+					<span class="text-tactical font-bold tracking-widest uppercase text-xs">Elite FAQ</span>
+					<div class="w-6 h-px bg-tactical ml-4"></div>
+				</div>
+				<h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">Preguntas Frecuentes</h2>
+			</div>
+			<div class="space-y-6">
+				<!-- FAQ Item 1 -->
+				<div x-data="{ open: false }" class="bg-gray-800 rounded-lg border border-gray-700/50">
+					<button @click="open = !open" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700/50 transition-all rounded-lg">
+						<h3 class="text-lg font-semibold text-white">¿Por qué necesitamos una consulta gratuita?</h3>
+						<svg :class="open ? 'rotate-180' : ''" class="w-5 h-5 text-tactical transition-transform" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+						</svg>
+					</button>
+					<div x-show="open" x-transition class="px-6 pb-4">
+						<p class="text-gray-400 leading-relaxed">
+							Para asegurar que el coaching sea adecuado para ti. Discutiremos tus objetivos, expectativas y estilo de vida.
+							Mi meta es dar los mejores resultados posibles, y para eso necesito conocerte primero. Sin compromisos.
+						</p>
+					</div>
+				</div>
+				<!-- FAQ Item 2 -->
+				<div x-data="{ open: false }" class="bg-gray-800 rounded-lg border border-gray-700/50">
+					<button @click="open = !open" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700/50 transition-all rounded-lg">
+						<h3 class="text-lg font-semibold text-white">¿Cuánto cuesta el coaching?</h3>
+						<svg :class="open ? 'rotate-180' : ''" class="w-5 h-5 text-tactical transition-transform" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+						</svg>
+					</button>
+					<div x-show="open" x-transition class="px-6 pb-4">
+						<p class="text-gray-400 leading-relaxed">
+							Los precios se discuten en la consulta y varían según tu perfil y objetivos. Quiero ser elegido por valor, no por precio.
+							El rango está entre $80.000-100.000 CLP mensual según las necesidades del cliente.
+						</p>
+					</div>
+				</div>
+				<!-- FAQ Item 3 -->
+				<div x-data="{ open: false }" class="bg-gray-800 rounded-lg border border-gray-700/50">
+					<button @click="open = !open" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700/50 transition-all rounded-lg">
+						<h3 class="text-lg font-semibold text-white">¿Cuál es tu filosofía como coach?</h3>
+						<svg :class="open ? 'rotate-180' : ''" class="w-5 h-5 text-tactical transition-transform" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+						</svg>
+					</button>
+					<div x-show="open" x-transition class="px-6 pb-4">
+						<p class="text-gray-400 leading-relaxed">
+							<span class="text-tactical font-semibold">Honestidad total y ciencia aplicada.</span> Cada persona es diferente, por eso
+							cada plan es único. No hay programas copiados. La salud mental es tan importante como la física,
+							y creo en hacer el proceso sostenible y disfrutable.
+						</p>
+					</div>
+				</div>
+				<!-- FAQ Item 4 -->
+				<div x-data="{ open: false }" class="bg-gray-800 rounded-lg border border-gray-700/50">
+					<button @click="open = !open" class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-700/50 transition-all rounded-lg">
+						<h3 class="text-lg font-semibold text-white">¿Estoy listo para un coach?</h3>
+						<svg :class="open ? 'rotate-180' : ''" class="w-5 h-5 text-tactical transition-transform" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+						</svg>
+					</button>
+					<div x-show="open" x-transition class="px-6 pb-4">
+						<p class="text-gray-400 leading-relaxed">
+							Si estás dispuesto a comprometerte con el proceso y hacer el trabajo necesario, entonces sí.
+							El coaching es una inversión en tu futuro. <span class="text-tactical font-semibold">El éxito no es un accidente, es una elección.</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- Final CTA -->
+			<div class="mt-12 text-center">
+				<a href="/appointments" class="inline-block bg-tactical text-black font-bold py-4 px-8 uppercase tracking-wider hover:bg-tactical/90 transition-all transform hover:scale-105 rounded">
+					Agenda Tu Consulta Gratuita
+				</a>
+			</div>
+		</div>
+	</section>
+}
