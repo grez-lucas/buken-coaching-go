@@ -1,0 +1,44 @@
+# Cloudflare Tunnel Configuration
+# Place this file at: ~/.cloudflared/config.yml
+# Replace YOUR_TUNNEL_ID with the actual tunnel ID from step 3
+
+tunnel: YOUR_TUNNEL_ID
+credentials-file: /home/YOUR_USERNAME/.cloudflared/YOUR_TUNNEL_ID.json
+
+# Ingress rules for buken-coaching.com
+ingress:
+  # Main production site
+  - hostname: bukencoaching.com
+    service: http://localhost:3000
+    originRequest:
+      httpHostHeader: bukencoaching.com
+      connectTimeout: 30s
+      tlsTimeout: 10s
+      tcpKeepAlive: 30s
+      keepAliveTimeout: 90s
+      keepAliveConnections: 10
+
+  # WWW redirect
+  - hostname: www.bukencoaching.com
+    service: http://localhost:3000
+    originRequest:
+      httpHostHeader: bukencoaching.com
+
+  # Development/staging subdomain (optional)
+  - hostname: dev.bukencoaching.com
+    service: http://localhost:3001
+    originRequest:
+      httpHostHeader: dev.bukencoaching.com
+
+  # Catch-all rule (required)
+  - service: http_status:404
+
+# Optional: Log configuration
+logDirectory: /var/log/cloudflared
+logLevel: info
+
+# Optional: Auto-update settings
+autoupdate-freq: 24h
+
+# Optional: Metrics
+metrics: localhost:8081
