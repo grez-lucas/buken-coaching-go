@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   buken-coaching:
     image: ghcr.io/grez-lucas/buken-coaching-go:latest
@@ -12,7 +10,7 @@ services:
       - PORT=3000
       - SMTP_HOST=${SMTP_HOST}
       - SMTP_PORT=${SMTP_PORT}
-      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_USERNAME=${SMTP_USER}
       - SMTP_PASSWORD=${SMTP_PASSWORD}
       - SMTP_FROM=${SMTP_FROM}
       - SMTP_USE_TLS=${SMTP_USE_TLS}
