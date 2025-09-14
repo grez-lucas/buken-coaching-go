@@ -22,6 +22,9 @@ func main() {
 
 	// Serve templ templates
 	r.Handle("/", templ.Handler(templates.IndexPage()))
+	r.Handle("/about", templ.Handler(templates.AboutMe()))
+	r.Handle("/appointments", templ.Handler(templates.Appointments()))
+	r.Handle("/coaching", templ.Handler(templates.Coaching()))
 
 	srv := &http.Server{
 		Handler:      middleware.Logging(logger, r),
