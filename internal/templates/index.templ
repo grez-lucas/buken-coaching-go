@@ -51,9 +51,10 @@ templ featureSection(title, subtitle, description, imageUrl, buttonLink string, 
 			if imageLeft {
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 					<div class="order-2 lg:order-1">
-						<div class="relative group">
-							<img src={ templ.URL(imageUrl) } alt={ title } class="object-cover w-full h-[500px] filter grayscale hover:grayscale-0 transition-all duration-700"/>
-							<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+						<div class="relative group overflow-hidden">
+							<img src={ templ.URL(imageUrl) } alt={ title } class="object-cover w-full h-[500px] transition-all duration-700 group-hover:scale-105"/>
+							<div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700"></div>
+							<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
 							<div class="absolute top-6 left-6">
 								<div class="w-8 h-px bg-tactical"></div>
 							</div>
@@ -101,9 +102,10 @@ templ featureSection(title, subtitle, description, imageUrl, buttonLink string, 
 						</div>
 					</div>
 					<div>
-						<div class="relative group">
-							<img src={ templ.URL(imageUrl) } alt={ title } class="object-cover w-full h-[500px] filter grayscale hover:grayscale-0 transition-all duration-700"/>
-							<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+						<div class="relative group overflow-hidden">
+							<img src={ templ.URL(imageUrl) } alt={ title } class="object-cover w-full h-[500px] transition-all duration-700 group-hover:scale-105"/>
+							<div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all duration-700"></div>
+							<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
 							<div class="absolute top-6 right-6">
 								<div class="w-8 h-px bg-tactical"></div>
 							</div>
