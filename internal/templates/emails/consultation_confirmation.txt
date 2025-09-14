@@ -1,0 +1,43 @@
+LB COACHING - CONSULTA CONFIRMADA
+==================================
+
+¡Excelente, {{.Name}}!
+
+Tu consulta gratuita ha sido confirmada exitosamente.
+Me entusiasma conocerte y comenzar a planificar tu transformación elite.
+
+TU CITA HA SIDO AGENDADA
+------------------------
+📅 Revisa tu Google Calendar para confirmar la fecha y hora exacta de tu consulta.
+⏱ Duración: 30 minutos
+
+Recibirás un email de confirmación directamente de Google Calendar con todos los detalles y el enlace de la videollamada.
+
+TUS OBJETIVOS
+-------------
+• Objetivo principal: {{.Goal}}
+• Plazo deseado: {{.Timeframe}}
+• Nivel de compromiso: {{.Commitment}}/10
+
+¿QUÉ ESPERAR DE NUESTRA CONSULTA?
+----------------------------------
+▸ Evaluación profunda: Analizaremos tu situación actual, historial y obstáculos principales
+▸ Estrategia clara: Diseñaremos un plan de acción específico para tus objetivos
+▸ Sin compromiso: Evaluaremos juntos si mi metodología es adecuada para ti
+▸ Respuestas directas: Resolvemos todas tus dudas sobre el programa elite
+
+💡 PREPÁRATE PARA EL ÉXITO
+--------------------------
+Ten a mano tu historial de entrenamiento, fotos actuales si las tienes, y cualquier pregunta específica que quieras hacer.
+Mientras más información compartas, mejor podré diseñar tu estrategia.
+
+Abrir Google Calendar: https://calendar.google.com
+
+Nos vemos pronto para comenzar tu transformación elite.
+
+Lucas Grez
+Coach • Transformación Elite
+
+---
+© 2024 LB Coaching - Asesorías Elite
+bukencoaching.com

@@ -35,6 +35,7 @@ templ smartSchedulingForm() {
 			<div
 				x-data="{
 					step: 1,
+					loading: false,
 					formData: {
 						name: '',
 						email: '',
@@ -45,9 +46,43 @@ templ smartSchedulingForm() {
 						experience: ''
 					},
 					qualified: false,
-					submitForm() {
-						this.qualified = this.formData.commitment >= 8;
-						this.step = 2;
+					async submitForm() {
+						this.loading = true;
+
+						try {
+							// Send form data to backend
+							const formData = new FormData();
+							formData.append('name', this.formData.name);
+							formData.append('email', this.formData.email);
+							formData.append('phone', this.formData.phone);
+							formData.append('goal', this.formData.goal);
+							formData.append('timeframe', this.formData.timeframe);
+							formData.append('commitment', this.formData.commitment.toString());
+							formData.append('experience', this.formData.experience);
+
+							const response = await fetch('/api/appointments', {
+								method: 'POST',
+								body: formData
+							});
+
+							if (response.ok) {
+								this.qualified = this.formData.commitment >= 8;
+								this.step = 2;
+							} else {
+								const errorText = await response.text();
+								console.error('Form submission failed:', errorText);
+								if (response.status === 400) {
+									alert('Por favor, completa todos los campos requeridos correctamente.');
+								} else {
+									alert('Error al enviar el formulario. Por favor, intenta de nuevo.');
+								}
+							}
+						} catch (error) {
+							console.error('Network error:', error);
+							alert('Error de conexión. Por favor, intenta de nuevo.');
+						} finally {
+							this.loading = false;
+						}
 					},
 					resetForm() {
 						this.step = 1;
@@ -180,11 +215,12 @@ templ smartSchedulingForm() {
 						<div class="text-center pt-6">
 							<button
 								type="submit"
-								:disabled="!formData.commitment"
-								:class="formData.commitment ? 'bg-tactical hover:bg-tactical/90' : 'bg-gray-600 cursor-not-allowed'"
+								:disabled="!formData.commitment || loading"
+								:class="(formData.commitment && !loading) ? 'bg-tactical hover:bg-tactical/90' : 'bg-gray-600 cursor-not-allowed'"
 								class="text-black font-bold py-4 px-8 uppercase tracking-wider transition-all transform hover:scale-105 rounded disabled:transform-none disabled:hover:bg-gray-600"
 							>
-								Evaluar Candidatura
+								<span x-show="!loading">Evaluar Candidatura</span>
+								<span x-show="loading">Enviando...</span>
 							</button>
 						</div>
 					</form>
