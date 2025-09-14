@@ -20,9 +20,9 @@ services:
     env_file:
       - .env.prod
 
-    # Internal port only (no host exposure)
-    expose:
-      - "3000"
+    # Map port to host for cloudflared access
+    ports:
+      - "3000:3000"
 
     # Health check
     healthcheck:
