@@ -1,0 +1,45 @@
+LB COACHING - SOLICITUD EN REVISIÓN
+====================================
+
+Hola {{.Name}},
+
+Gracias por tu interés en mi programa de asesoría elite.
+He recibido tu solicitud y la estoy evaluando personalmente.
+
+INFORMACIÓN RECIBIDA
+--------------------
+• Objetivo: {{.Goal}}
+• Plazo: {{.Timeframe}}
+• Experiencia: {{.Experience}}
+• Nivel de compromiso: {{.Commitment}}/10
+
+¿POR QUÉ NECESITO REVISAR TU CASO?
+-----------------------------------
+Mi programa de asesoría elite requiere un compromiso total durante mínimo 6 meses.
+Quiero asegurarme de que estés en el momento adecuado para aprovechar al máximo esta inversión en tu transformación.
+
+¿QUÉ SUCEDE AHORA?
+------------------
+1. Evaluación personal: Revisaré tu información en las próximas 24 horas
+2. Contacto directo: Te contactaré personalmente por email o teléfono
+3. Plan de acción: Determinaremos juntos el mejor camino para tu transformación
+
+💡 MIENTRAS TANTO
+-----------------
+Reflexiona sobre estas preguntas que te haré:
+• ¿Qué has intentado antes y por qué no funcionó?
+• ¿Qué estás dispuesto a sacrificar por tu objetivo?
+• ¿Cómo te ves en 6 meses si sigues el plan al 100%?
+• ¿Qué obstáculos anticipas en tu camino?
+
+IMPORTANTE: Revisa tu bandeja de entrada y carpeta de spam
+Mi respuesta llegará desde este mismo correo en las próximas 24 horas
+
+Si tu compromiso es real, encontraremos la forma de trabajar juntos.
+
+Lucas Grez
+Coach • Transformación Elite
+
+---
+© 2024 LB Coaching - Asesorías Elite
+bukencoaching.com

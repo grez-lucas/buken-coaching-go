@@ -1,0 +1,55 @@
+===================================
+📊 ADMIN NOTIFICATION - LB COACHING
+===================================
+
+{{if .IsQualified}}✅ QUALIFIED CLIENT{{else}}⚠️ REVIEW NEEDED{{end}}
+
+ALERT: {{if .IsQualified}}Alta Prioridad - Cliente calificado ({{.Commitment}}/10) - Consulta agendada automáticamente{{else}}Revisión Manual - Bajo compromiso ({{.Commitment}}/10) - Requiere evaluación{{end}}
+
+-----------------------------------
+INFORMACIÓN DEL CLIENTE
+-----------------------------------
+Nombre: {{.Name}}
+Email: {{.Email}}
+Teléfono: {{.Phone}}
+Fecha registro: {{.SubmittedAt}}
+
+-----------------------------------
+EVALUACIÓN INICIAL
+-----------------------------------
+Objetivo: {{.Goal}}
+Timeframe: {{.Timeframe}}
+Experiencia: {{.Experience}}
+Nivel de Compromiso: {{.Commitment}}/10
+
+{{if .IsQualified}}
+-----------------------------------
+CITA AGENDADA
+-----------------------------------
+📅 Fecha: {{.AppointmentDate}}
+⏰ Hora: {{.AppointmentTime}}
+📍 Enlace: {{.MeetingLink}}
+{{end}}
+
+-----------------------------------
+ACCIÓN REQUERIDA
+-----------------------------------
+{{if .IsQualified}}
+✅ Preparar Consulta
+El cliente ya recibió confirmación automática.
+Prepara la estrategia basada en sus objetivos.
+{{else}}
+⚠️ Contactar en 24h
+Evalúa si puedes ayudar a aumentar su compromiso.
+El cliente recibió notificación de espera.
+{{end}}
+
+Contactar: {{.Email}}
+Llamar: {{.Phone}}
+
+-----------------------------------
+TIP: Clientes con compromiso 8+ tienen 3x más probabilidad de completar el programa
+
+---
+Este es un email automático del sistema LB Coaching
+Dashboard: https://bukencoaching.com/admin

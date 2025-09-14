@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación en Proceso - LB Coaching</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        /* Reset styles */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+
+        /* Remove default styling */
+        body { margin: 0; padding: 0; width: 100% !important; min-width: 100%; }
+
+        /* Mobile styles */
+        @media screen and (max-width: 600px) {
+            .mobile-hide { display: none !important; }
+            .mobile-center { text-align: center !important; }
+            .container { width: 100% !important; max-width: 100% !important; }
+            .content { padding: 20px !important; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+
+    <!-- Wrapper -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #0a0a0a;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+
+                <!-- Container -->
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" class="container" style="background-color: #111111; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #227447 0%, #1a5936 100%); padding: 40px 30px; text-align: center;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: bold; letter-spacing: 2px;">LB COACHING</h1>
+                            <div style="width: 60px; height: 2px; background-color: #ffffff; margin: 20px auto 0;"></div>
+                        </td>
+                    </tr>
+
+                    <!-- Status Badge -->
+                    <tr>
+                        <td style="padding: 30px 30px 0; text-align: center;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center">
+                                <tr>
+                                    <td style="background-color: rgba(255, 193, 7, 0.2); border: 1px solid #ffc107; border-radius: 20px; padding: 8px 20px;">
+                                        <span style="color: #ffc107; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">⏳ En Revisión</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Main Content -->
+                    <tr>
+                        <td class="content" style="padding: 30px;">
+
+                            <!-- Greeting -->
+                            <h2 style="color: #ffffff; font-size: 24px; margin: 0 0 20px; text-align: center;">
+                                Hola {{.Name}}
+                            </h2>
+
+                            <p style="color: #cccccc; font-size: 16px; line-height: 24px; margin: 0 0 30px; text-align: center;">
+                                Gracias por tu interés en mi programa de <strong style="color: #227447;">asesoría elite</strong>.
+                                He recibido tu solicitud y la estoy evaluando personalmente.
+                            </p>
+
+                            <!-- Your Information Box -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #1a1a1a; border-radius: 8px; margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h3 style="color: #ffc107; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px;">
+                                            Información Recibida
+                                        </h3>
+
+                                        <p style="color: #cccccc; font-size: 14px; line-height: 22px; margin: 0 0 10px;">
+                                            <strong>Objetivo:</strong> {{.Goal}}
+                                        </p>
+                                        <p style="color: #cccccc; font-size: 14px; line-height: 22px; margin: 0 0 10px;">
+                                            <strong>Plazo:</strong> {{.Timeframe}}
+                                        </p>
+                                        <p style="color: #cccccc; font-size: 14px; line-height: 22px; margin: 0 0 10px;">
+                                            <strong>Experiencia:</strong> {{.Experience}}
+                                        </p>
+                                        <p style="color: #cccccc; font-size: 14px; line-height: 22px; margin: 0;">
+                                            <strong>Nivel de compromiso:</strong> <span style="color: #ffc107; font-weight: bold;">{{.Commitment}}/10</span>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Why Review Section -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #1a1a1a; border-left: 3px solid #ffc107; margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <h3 style="color: #ffc107; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 15px;">
+                                            ¿Por qué necesito revisar tu caso?
+                                        </h3>
+                                        <p style="color: #cccccc; font-size: 14px; line-height: 22px; margin: 0;">
+                                            Mi programa de asesoría elite requiere un <strong style="color: #ffffff;">compromiso total</strong> durante mínimo 6 meses.
+                                            Quiero asegurarme de que estés en el momento adecuado para aprovechar al máximo esta inversión en tu transformación.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- What Happens Next -->
+                            <h3 style="color: #ffffff; font-size: 18px; margin: 30px 0 20px; text-align: center;">
+                                ¿Qué sucede ahora?
+                            </h3>
+
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 0 15px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td width="30" valign="top" style="color: #ffc107; font-size: 20px;">1.</td>
+                                                <td style="color: #cccccc; font-size: 14px; line-height: 22px;">
+                                                    <strong style="color: #ffffff;">Evaluación personal:</strong> Revisaré tu información en las próximas 24 horas
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0 0 15px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td width="30" valign="top" style="color: #ffc107; font-size: 20px;">2.</td>
+                                                <td style="color: #cccccc; font-size: 14px; line-height: 22px;">
+                                                    <strong style="color: #ffffff;">Contacto directo:</strong> Te contactaré personalmente por email o teléfono
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0 0 15px;">
+                                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                            <tr>
+                                                <td width="30" valign="top" style="color: #ffc107; font-size: 20px;">3.</td>
+                                                <td style="color: #cccccc; font-size: 14px; line-height: 22px;">
+                                                    <strong style="color: #ffffff;">Plan de acción:</strong> Determinaremos juntos el mejor camino para tu transformación
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Preparation Tips -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: rgba(255, 193, 7, 0.1); border-radius: 8px; margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 20px;">
+                                        <h4 style="color: #ffc107; font-size: 14px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 15px;">
+                                            💡 Mientras tanto
+                                        </h4>
+                                        <p style="color: #cccccc; font-size: 14px; line-height: 22px; margin: 0 0 15px;">
+                                            Reflexiona sobre estas preguntas que te haré:
+                                        </p>
+                                        <ul style="color: #cccccc; font-size: 14px; line-height: 22px; margin: 0; padding-left: 20px;">
+                                            <li style="margin-bottom: 8px;">¿Qué has intentado antes y por qué no funcionó?</li>
+                                            <li style="margin-bottom: 8px;">¿Qué estás dispuesto a sacrificar por tu objetivo?</li>
+                                            <li style="margin-bottom: 8px;">¿Cómo te ves en 6 meses si sigues el plan al 100%?</li>
+                                            <li>¿Qué obstáculos anticipas en tu camino?</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Important Note -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: rgba(34, 116, 71, 0.1); border: 1px solid #227447; border-radius: 8px; margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 20px; text-align: center;">
+                                        <p style="color: #227447; font-size: 14px; font-weight: bold; margin: 0;">
+                                            IMPORTANTE: Revisa tu bandeja de entrada y carpeta de spam
+                                        </p>
+                                        <p style="color: #cccccc; font-size: 14px; margin: 10px 0 0;">
+                                            Mi respuesta llegará desde este mismo correo en las próximas 24 horas
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Closing -->
+                            <p style="color: #cccccc; font-size: 14px; line-height: 22px; text-align: center; margin: 30px 0 0;">
+                                Si tu compromiso es real, encontraremos la forma de trabajar juntos.
+                            </p>
+
+                            <p style="color: #ffffff; font-size: 16px; font-weight: bold; text-align: center; margin: 20px 0 0;">
+                                Lucas Grez<br>
+                                <span style="color: #227447; font-size: 14px; font-weight: normal;">Coach • Transformación Elite</span>
+                            </p>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #0a0a0a; padding: 30px; text-align: center;">
+                            <p style="color: #666666; font-size: 12px; margin: 0 0 10px;">
+                                © 2024 LB Coaching - Asesorías Elite
+                            </p>
+                            <p style="color: #666666; font-size: 12px; margin: 0;">
+                                <a href="https://bukencoaching.com" style="color: #227447; text-decoration: none;">bukencoaching.com</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
