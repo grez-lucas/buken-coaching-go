@@ -4,8 +4,8 @@ templ IndexPage() {
 	@BaseLayout("LB Coaching - Asesorías") {
 		@heroSectionMain()
 		@featureSection("Asesorías 1:1", "Estrategia personalizada.", "Trabaja directamente con Coach Lucas, un especialista en transformaciones físicas con más de 6 años de experiencia. Su método basado en datos y disciplina asegura resultados medibles y sostenibles.", "/static/images/coach_buken_square.jpg", "/coaching", true)
-		@featureSection("Resultados Verificables", "Compromiso con la excelencia.", "Cada programa está diseñado con precisión científica. Desde pérdida de grasa hasta preparación para competencias, nuestros métodos están probados y respaldados por ciencia aplicada.", "https://images.squarespace-cdn.com/content/v1/615e440d2b5cdc6d4c9e46b6/1697039335186-9R8RQ6TGCYW4Q0HIS1DH/_DSC6306.jpg", "/appointments", false)
-		@featureSection("Método Elite", "Ciencia aplicada con disciplina.", "Utilizamos protocolos de entrenamiento de élite combinados con nutrición estratégica. Cada variable está calculada, cada progreso documentado, cada objetivo conquistado metódicamente.", "/static/images/program-collage.png", "/coaching", true)
+		@featureSection("Método Elite", "Ciencia aplicada con disciplina.", "Utilizamos protocolos de entrenamiento de élite combinados con nutrición estratégica. Cada variable está calculada, cada progreso documentado, cada objetivo conquistado metódicamente.", "/static/images/program-collage.png", "/coaching", false)
+		@transformationCarousel()
 	}
 }
 
@@ -113,6 +113,125 @@ templ featureSection(title, subtitle, description, imageUrl, buttonLink string, 
 					</div>
 				</div>
 			}
+		</div>
+	</section>
+}
+
+// Transformation carousel section with tactical styling
+templ transformationCarousel() {
+	<section class="py-20 px-4 bg-gray-900 border-b border-gray-900/50">
+		<div class="max-w-7xl mx-auto">
+			<!-- Section Header -->
+			<div class="text-center mb-16">
+				<div class="flex items-center justify-center mb-6">
+					<div class="w-6 h-px bg-tactical mr-4"></div>
+					<span class="text-tactical font-bold tracking-widest uppercase text-xs">Elite</span>
+					<div class="w-6 h-px bg-tactical ml-4"></div>
+				</div>
+				<h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">Transformaciones Reales</h2>
+				<p class="text-tactical text-lg font-semibold mb-6 tracking-wide">Resultados verificables y medibles.</p>
+				<p class="text-gray-400 leading-relaxed max-w-2xl mx-auto font-medium">
+					Cada transformación representa meses de disciplina, ciencia aplicada y compromiso total.
+					Estas son pruebas tangibles de lo que se puede lograr con el método correcto.
+				</p>
+			</div>
+			<!-- Carousel Container -->
+			<div x-data="{ activeSlide: 0, totalSlides: 3 }" class="relative max-w-6xl mx-auto">
+				<!-- Carousel Images -->
+				<div class="overflow-hidden rounded-lg">
+					<div
+						class="flex transition-transform duration-500 ease-in-out w-full"
+						x-bind:style="`transform: translateX(-${activeSlide * 100}%)`"
+					>
+						<!-- Slide 1 -->
+						<div class="w-full flex-shrink-0">
+							<div class="bg-gray-800 p-6 md:p-8 mx-4 rounded-lg border border-gray-700/50">
+								<img
+									src="/static/images/transformation_1.png"
+									alt="Transformación 1"
+									class="w-full max-w-2xl mx-auto rounded-lg shadow-2xl"
+								/>
+								<div class="text-center mt-6">
+									<div class="w-12 h-px bg-tactical mx-auto mb-4"></div>
+									<p class="text-gray-300 text-sm tracking-wide">
+										<span class="text-tactical font-semibold">Resultados en 20 semanas</span> - Fase de Ganancia Muscular
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- Slide 2 -->
+						<div class="w-full flex-shrink-0">
+							<div class="bg-gray-800 p-6 md:p-8 mx-4 rounded-lg border border-gray-700/50">
+								<img
+									src="/static/images/transformation_2.png"
+									alt="Transformación 2"
+									class="w-full max-w-2xl mx-auto rounded-lg shadow-2xl"
+								/>
+								<div class="text-center mt-6">
+									<div class="w-12 h-px bg-tactical mx-auto mb-4"></div>
+									<p class="text-gray-300 text-sm tracking-wide">
+										<span class="text-tactical font-semibold">Definición muscular elite</span> - Precisión en cada variable
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- Slide 3 -->
+						<div class="w-full flex-shrink-0">
+							<div class="bg-gray-800 p-6 md:p-8 mx-4 rounded-lg border border-gray-700/50">
+								<img
+									src="/static/images/transformation_3.png"
+									alt="Transformación 3"
+									class="w-full max-w-2xl mx-auto rounded-lg shadow-2xl"
+								/>
+								<div class="text-center mt-6">
+									<div class="w-12 h-px bg-tactical mx-auto mb-4"></div>
+									<p class="text-gray-300 text-sm tracking-wide">
+										<span class="text-tactical font-semibold">Composición corporal optimizada</span> - Método basado en datos
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Navigation Arrows -->
+				<button
+					@click="activeSlide = activeSlide === 0 ? totalSlides - 1 : activeSlide - 1"
+					class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-tactical text-white hover:text-black p-3 rounded-full transition-all group z-10"
+				>
+					<svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+					</svg>
+				</button>
+				<button
+					@click="activeSlide = activeSlide === totalSlides - 1 ? 0 : activeSlide + 1"
+					class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-tactical text-white hover:text-black p-3 rounded-full transition-all group z-10"
+				>
+					<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+					</svg>
+				</button>
+				<!-- Dots Indicator -->
+				<div class="flex justify-center mt-8 space-x-3">
+					<template x-for="slide in totalSlides" :key="slide">
+						<button
+							@click="activeSlide = slide - 1"
+							:class="activeSlide === slide - 1 ? 'bg-tactical' : 'bg-gray-600'"
+							class="w-3 h-3 rounded-full transition-colors hover:bg-tactical/70"
+						></button>
+					</template>
+				</div>
+				<!-- CTA Button -->
+				<div class="text-center mt-12">
+					<a href="/appointments" class="inline-block border border-tactical text-tactical hover:bg-tactical hover:text-black font-bold py-4 px-10 uppercase tracking-wider transition-all transform hover:scale-105 group">
+						<span class="flex items-center justify-center">
+							Comienza Tu Transformación
+							<svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+							</svg>
+						</span>
+					</a>
+				</div>
+			</div>
 		</div>
 	</section>
 }
