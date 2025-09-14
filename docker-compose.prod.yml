@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  buken-coaching:
+    image: ghcr.io/grez-lucas/buken-coaching-go:latest
+    container_name: buken-coaching-prod
+    restart: unless-stopped
+
+    # Environment variables for production
+    environment:
+      - ENV=production
+      - PORT=3000
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_FROM=${SMTP_FROM}
+      - SMTP_USE_TLS=${SMTP_USE_TLS}
+      - COACH_EMAIL=${COACH_EMAIL}
+
+    # Load environment from file
+    env_file:
+      - .env.prod
+
+    # Internal port only (no host exposure)
+    expose:
+      - "3000"
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    # Security
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+
+    # Networks
+    networks:
+      - buken-network
+
+  # Watchtower for automatic updates
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: buken-coaching-watchtower
+    restart: unless-stopped
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=300
+      - WATCHTOWER_INCLUDE_RESTARTING=true
+      - WATCHTOWER_INCLUDE_STOPPED=false
+      - WATCHTOWER_REVIVE_STOPPED=false
+      - WATCHTOWER_NO_RESTART=false
+      - WATCHTOWER_TIMEOUT=10s
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300 --cleanup buken-coaching-prod
+    networks:
+      - buken-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+networks:
+  buken-network:
+    driver: bridge
+    name: buken-coaching-network
