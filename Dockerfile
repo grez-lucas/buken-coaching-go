@@ -48,8 +48,9 @@ COPY --from=builder /app/internal/templates ./internal/templates
 # Copy email templates
 COPY --from=builder /app/internal/templates/emails ./internal/templates/emails
 
-# Change ownership of app directory to non-root user
-RUN chown -R appuser:appgroup /app
+# Make binary executable and change ownership
+RUN chmod +x /app/main && \
+    chown -R appuser:appgroup /app
 
 # Switch to non-root user
 USER appuser
