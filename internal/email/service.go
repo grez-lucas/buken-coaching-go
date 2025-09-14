@@ -19,6 +19,7 @@ type SMTPService struct {
 	config        *config.SMTP
 	htmlTemplates *template.Template
 	textTemplates *textTemplate.Template
+	logger        *slog.Logger
 }
 
 // ConsultationConfirmationData holds data for confirmed consultation emails (commitment 8+)
@@ -182,8 +183,11 @@ func NewCoachNotificationData(form FormSubmission, submittedAt time.Time, appoin
 
 // NewSMTPService instantiates a new SMTPService with a given SMTP configuration.
 // It loads email templates from the specified directory.
-func NewSMTPService(cfg *config.SMTP, templatesDir string) (*SMTPService, error) {
-	service := &SMTPService{config: cfg}
+func NewSMTPService(cfg *config.SMTP, templatesDir string, logger *slog.Logger) (*SMTPService, error) {
+	service := &SMTPService{
+		config: cfg,
+		logger: logger,
+	}
 
 	if err := service.loadTemplates(templatesDir); err != nil {
 		return nil, fmt.Errorf("failed to load email templates: %w", err)
@@ -377,7 +381,7 @@ func (s *SMTPService) sendEmailWithRetry(to, subject, htmlBody, textBody string,
 	err := s.sendEmail(to, subject, htmlBody, textBody)
 	for attempt := 0; attempt <= maxRetries; attempt++ {
 		if err == nil {
-			slog.Info("Email sent successfully",
+			s.logger.Info("Email sent successfully",
 				slog.Int("attempt", attempt),
 				slog.String("recipient", to),
 			)
@@ -386,7 +390,7 @@ func (s *SMTPService) sendEmailWithRetry(to, subject, htmlBody, textBody string,
 
 		if attempt < maxRetries {
 			delay := time.Duration(attempt+1) * 2 * time.Second
-			slog.Warn("Retrying after delay", slog.String("delay", delay.String()))
+			s.logger.Warn("Retrying after delay", slog.String("delay", delay.String()))
 			time.Sleep(delay)
 		}
 

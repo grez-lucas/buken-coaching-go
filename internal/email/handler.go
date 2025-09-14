@@ -11,12 +11,14 @@ import (
 type EmailHandler struct {
 	smtpService *SMTPService
 	coachEmail  string
+	logger      *slog.Logger
 }
 
-func NewEmailHandler(smtpService *SMTPService, coachEmail string) *EmailHandler {
+func NewEmailHandler(smtpService *SMTPService, coachEmail string, logger *slog.Logger) *EmailHandler {
 	return &EmailHandler{
 		smtpService: smtpService,
 		coachEmail:  coachEmail,
+		logger:      logger,
 	}
 }
 
@@ -28,7 +30,7 @@ func (h *EmailHandler) HandleAppointmentForm(w http.ResponseWriter, r *http.Requ
 
 	// Parse multipart form data
 	if err := r.ParseMultipartForm(32 << 20); err != nil { // 32 MB max memory
-		slog.Error("Failed to parse multipart form", slog.String("error", err.Error()))
+		h.logger.Error("Failed to parse multipart form", slog.String("error", err.Error()))
 		http.Error(w, "Invalid form data", http.StatusBadRequest)
 		return
 	}
@@ -36,14 +38,14 @@ func (h *EmailHandler) HandleAppointmentForm(w http.ResponseWriter, r *http.Requ
 	// Convert commitment string to int
 	commitmentStr := r.FormValue("commitment")
 	if commitmentStr == "" {
-		slog.Error("Commitment value is required")
+		h.logger.Error("Commitment value is required")
 		http.Error(w, "Commitment level is required", http.StatusBadRequest)
 		return
 	}
 
 	commitment, err := strconv.Atoi(commitmentStr)
 	if err != nil || commitment < 1 || commitment > 10 {
-		slog.Error("Invalid commitment value", slog.String("value", commitmentStr), slog.String("error", err.Error()))
+		h.logger.Error("Invalid commitment value", slog.String("value", commitmentStr), slog.String("error", err.Error()))
 		http.Error(w, "Commitment level must be between 1 and 10", http.StatusBadRequest)
 		return
 	}
@@ -60,7 +62,7 @@ func (h *EmailHandler) HandleAppointmentForm(w http.ResponseWriter, r *http.Requ
 
 	// Send emails
 	if err := h.HandleConsultationSubmission(form); err != nil {
-		slog.Error("Email sending failed", slog.String("error", err.Error()))
+		h.logger.Error("Email sending failed", slog.String("error", err.Error()))
 		http.Error(w, "Failed to send emails", http.StatusInternalServerError)
 		return
 	}

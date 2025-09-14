@@ -27,12 +27,12 @@ func main() {
 		log.Fatal("SMTP config:", err)
 	}
 
-	smtpService, err := email.NewSMTPService(smtpConfig, "internal/templates/emails")
+	smtpService, err := email.NewSMTPService(smtpConfig, "internal/templates/emails", logger)
 	if err != nil {
 		log.Fatal("Email service:", err)
 	}
 
-	emailHandler := email.NewEmailHandler(smtpService, smtpConfig.Username)
+	emailHandler := email.NewEmailHandler(smtpService, smtpConfig.Username, logger)
 
 	r := http.NewServeMux()
 
